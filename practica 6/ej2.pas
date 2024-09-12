@@ -1,4 +1,4 @@
-program ej1;
+program ejer2;
 const
 dimF = 10;
 type
@@ -41,6 +41,24 @@ medio:= (max + min) div 2;
 	end;
 end;
 
+procedure buscar10(v: vectEnteros); 
+var
+max,min,buscar,i: integer;
+encontrado, noEncontrado: integer;
+begin
+encontrado:= 0;
+noEncontrado:= 0;
+for i:= 1 to dimF do begin
+    buscar:= random(1000 - 200) + 200;
+    if v[i] = buscar then begin
+        encontrado:= encontrado +1;
+    end
+    else begin
+        noEncontrado:= noEncontrado +1;
+    end;
+end;
+writeln('CANTIDAD DE VECES ENCONTRADO: ',encontrado, 'CANTIDAD DE VECES NO ENCONTRADO: ', noEncontrado);
+end;
 procedure OrdenPorSeleccion (var v: vectEnteros);
 var
 minIndex,temp,i,j: integer;
@@ -76,5 +94,7 @@ BEGIN
 	nrandom:= v[random(10-1)+1];
 	writeln(nrandom);
 	writeln(busquedaDicotomica(v,nrandom,1,10));
+    writeln('RANDOM 10 ----------------------------------------');
+    buscar10(v);
 END.
 
